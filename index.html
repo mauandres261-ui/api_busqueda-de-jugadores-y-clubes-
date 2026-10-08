@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1717">
+  <title>Buscador de fútbol | TheSportsDB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+  <header class="topbar shell">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true"><i class="fa-solid fa-futbol"></i></span>
+      <span class="brand-name">CANCHA / DATA</span>
+    </div>
+    <div class="connection"><span id="connection-dot" class="dot" aria-hidden="true"></span><span id="connection-label">Conectando con TheSportsDB</span></div>
+  </header>
+
+  <main class="shell">
+    <p class="eyebrow">Fútbol · plantillas</p>
+    <h1>Busca equipos y jugadores.</h1>
+    <p class="lede">Consulta la plantilla de un club o descubre en qué equipo juega un futbolista.</p>
+
+    <fieldset class="search-modes" aria-label="Tipo de búsqueda">
+      <label><input type="radio" name="search-mode" value="team" checked><span>Equipo</span></label>
+      <label><input type="radio" name="search-mode" value="player"><span>Jugador</span></label>
+    </fieldset>
+
+    <form id="search-form">
+      <label id="search-label" for="team-query" class="visually-hidden">Nombre del equipo</label>
+      <input id="team-query" name="team" type="search" placeholder="Ej. Barcelona" value="Barcelona" minlength="2" maxlength="60" required>
+      <button id="search-button" type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Buscar</button>
+    </form>
+
+    <section aria-labelledby="results-title">
+      <div class="results-heading">
+        <h2 id="results-title">Plantilla actual</h2>
+        <span id="result-count"></span>
+      </div>
+      <p id="message" role="status" aria-live="polite">Buscando equipo...</p>
+      <div id="player-list" class="player-list"></div>
+      <p class="data-note">La información depende de TheSportsDB y puede estar incompleta o desactualizada. Kendrick Franco es un registro añadido manualmente.</p>
+    </section>
+  </main>
+
+  <script src="./validaciones/validaciones.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</body>
+</html>
